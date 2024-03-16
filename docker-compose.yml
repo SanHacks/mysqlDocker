@@ -19,3 +19,11 @@ services:
     restart: always
     ports:
       - "8081:8080" # map Adminer port 8080 in the container to port 8081 on the host
+
+  portainer:
+    image: portainer/portainer-ce
+    restart: always
+    ports:
+      - "9090:9000" # map Portainer port 9000 in the container to port 9090 on the host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # This volume allows Portainer to access the Docker API
